@@ -1,0 +1,177 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  
+  --color-synapse-red: hsl(var(--synapse-red));
+  --color-synapse-blue: hsl(var(--synapse-blue));
+  --color-synapse-sage: hsl(var(--synapse-sage));
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+/* Deep Neural Theme - Inspired by the neuron/synapse imagery */
+:root {
+  /* Deep blue-purple background matching the images */
+  --background: 231 38% 8%; /* Darker, more saturated blue-purple */
+  --foreground: 220 20% 98%;
+
+  /* Cards with slight transparency */
+  --card: 231 35% 12%;
+  --card-foreground: 220 20% 98%;
+
+  --popover: 231 35% 12%;
+  --popover-foreground: 220 20% 98%;
+
+  /* Primary - soft teal/mint for actions matching Begin Protocol button */
+  --primary: 158 64% 52%; 
+  --primary-foreground: 231 40% 5%;
+
+  --secondary: 231 25% 18%;
+  --secondary-foreground: 220 20% 90%;
+
+  --muted: 231 20% 25%;
+  --muted-foreground: 220 15% 65%;
+
+  --accent: 231 25% 25%;
+  --accent-foreground: 220 20% 98%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 231 20% 20%;
+  --input: 231 20% 20%;
+  --ring: 158 64% 52%;
+
+  --radius: 1rem;
+
+  /* Partner Duality - Warm Red / Cool Blue */
+  --synapse-red: 350 100% 65%; /* More vibrant warm glow from new image */
+  --synapse-blue: 210 100% 65%; /* More vibrant cool glow from new image */
+  --synapse-sage: 158 64% 52%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground selection:bg-synapse-blue/30;
+    background-image: 
+      radial-gradient(circle at 20% 30%, hsla(231, 40%, 15%, 0.4) 0%, transparent 60%),
+      radial-gradient(circle at 80% 70%, hsla(355, 40%, 15%, 0.2) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+/* Glass & Card Utilities */
+@layer utilities {
+  .glass {
+    @apply bg-black/30 backdrop-blur-2xl border border-white/5;
+  }
+
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/10 shadow-2xl rounded-[1.5rem];
+  }
+
+  .glass-panel {
+    @apply bg-white/[0.02] backdrop-blur-lg border border-white/10 shadow-lg;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 15px currentColor;
+  }
+
+  .glow-red {
+    box-shadow: 0 0 50px -10px hsla(var(--synapse-red), 0.3);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 50px -10px hsla(var(--synapse-blue), 0.3);
+  }
+
+  .glow-sage {
+    box-shadow: 0 0 40px -10px hsla(var(--synapse-sage), 0.3);
+  }
+}
+
+/* Neural Decoration Patterns */
+.neural-decor-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background-image: radial-gradient(circle at center, hsl(var(--synapse-blue) / 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.neural-decor-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  background-image: radial-gradient(circle at center, hsl(var(--synapse-red) / 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animation Utilities */
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse-slow {
+  animation: pulseSlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+.animate-spin-slow {
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
