@@ -204,3 +204,69 @@ export default function Quiz() {
     </div>
   );
 }
+export const quizData = {
+  title: "Synapse Quiz - Phase 2",
+  instructions: "Answer honestly for yourself first, then as you think your partner would.",
+  modules: [
+    {
+      id: "individualProfile",
+      title: "Module A: Individual Profile",
+      questions: [
+        "Rank these core values (1-7): Career, Financial Security, Family, Health, Adventure, Romance, Community",
+        "Your decision guiding principle? (Gut instinct / Careful analysis / Trusted advice / Core principles)",
+        "How easy are you with expressing feelings? (1=Never - 5=Always)",
+        "After a stressful day, you need: (Social time / Alone time / Hobby / Physical activity)",
+        "When criticized, you typically: (Listen openly / Defend yourself / Feel hurt / Question motives)",
+        "Cancellation last-minute makes you feel: (Frustrated / Disappointed / Understanding / Let down)",
+        "Optimism level in life? (1=Pessimist - 5=Optimist)",
+        "Emotional intensity? (1=Calm - 5=Intense)",
+        "Need time alone after conflict? (1=Never - 5=Always)"
+      ]
+    },
+    {
+      id: "relationshipParadigm",
+      title: "Module B: Relationship Paradigm",
+      questions: [
+        "Describe your relationship philosophy in 1 sentence.",
+        "Non-negotiable boundaries: alone time, ex-friends, financial transparency? (Yes/No + explain)",
+        "How do you define emotional intimacy?",
+        "Physical affection frequency preference? (1=Minimal - 5=Constant)",
+        "What makes you feel most loved by a partner?",
+        "Expectations around commitment/marriage?",
+        "How important is shared life vision?",
+        "Dealbreakers around fidelity/transparency?",
+        "How do you want conflict handled?"
+      ]
+    },
+    {
+      id: "scenarios",
+      title: "Module C: Scenarios",
+      questions: [
+        "Partner upset and silent. Your response? What do you hope for?",
+        "You discover hidden financial issue. First action? Predict partner reaction?",
+        "Mismatched weekend plans. How do you negotiate?",
+        "Partner jokes about your insecurity in public. Interpretation? Desired change?",
+        "Libido mismatch. Fair path forward?",
+        "You feel emotionally distant, partner says 'everything's fine'. How to address?",
+        "Partner vents after stressful day, you're exhausted. Ideal handling?",
+        "Flirtatious messages found. What matters most in repair?",
+        "Plans made for both without asking. Feeling? Ideal partner response?"
+      ]
+    },
+    {
+      id: "frictionSynergy",
+      title: "Module D: Friction & Synergy",
+      questions: [
+        "Topics you avoid or fight about most?",
+        "Most 'in sync' moment with partner?",
+        "Small irritating behavior?",
+        "Partner behavior that makes you feel loved?",
+        "Where you feel most unseen/unheard?",
+        "Recurring arguments (same fight, different costumes)?",
+        "How you handle hurt feelings?",
+        "Big decision handling style (money, moves, career)?",
+        "Alignment vs misalignment in values?"
+      ]
+    }
+  ]
+};
